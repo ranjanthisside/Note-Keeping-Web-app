@@ -1,3 +1,4 @@
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -5,13 +6,18 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
+import authRoutes from "./routes/auth.js"
+import notesRoutes from "./routes/notes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/auth", authRoutes);
+app.use("/notes", notesRoutes);
 
 // mongodb connection
 const MONGO_URI = process.env.MONGO_URI;
@@ -20,35 +26,16 @@ mongoose
 .then(()=> console.log("MongoDB Connected"))
 .catch((err) => console.log("DB Error: ", err));
 
+app.get("/",(req, res)=> {
+    res.send("Api Running successfully");
+});
+
 // schema and model
-const noteSchema = new mongoose.Schema({
-    text:String,
-});
+// const noteSchema = new mongoose.Schema({
+//     text:String,
+// });
 
-const Note = mongoose.model("Note", noteSchema);
-
-// routes
-
-// get all notes
-app.get("/notes", async(req,res)=>{
-    const notes = await Note.find();
-    res.json(notes);
-});
-
-// post new note
-app.post("/notes", async(req,res) => {
-    const newNote = new Note({text: req.body.note});
-    await newNote.save();
-    res.json({message: "Note saved to DB"});
-});
-
-
-// delete note
-app.delete("/notes/:id", async (req, res) => {
-    await Note.findByIdAndDelete(req.params.id);
-    res.json({message:"Note deleted"});
-});
-
+// const Note = mongoose.model("Note", noteSchema);
 
 // starting server
 app.listen(PORT, ()=> {
