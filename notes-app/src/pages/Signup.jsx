@@ -32,10 +32,9 @@ export default function Signup() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Signup</h2>
-
+    <div className="loginContainer" style={{ padding: 20 }}>
       <form onSubmit={handleSignup}>
+        <h2>Signup</h2>
         <input
           type="email"
           placeholder="Email"
@@ -55,11 +54,17 @@ export default function Signup() {
         <br /><br />
 
         <button className="homepageButton" type="submit">Signup</button>
+        <p className="redirectText">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </form>
+      <div className="loginRight">
+        <p>save your thoughs before they're lost again !!</p>
+        <p id="nameText">notes app by <br /> <b> Prabhakar</b> </p>
+      </div>
+      <p className="Copyright">2026 Prabhakar Ranjan. Copyright, All rights reserved</p>
 
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+      
     </div>
   );
 }

@@ -34,10 +34,11 @@ export default function Login(){
     };
 
     return (
-    <div style={{ padding: 20 }}>
-      <h2>Login</h2>
+    <div className="loginContainer" style={{ padding: 20 }}>
+      
 
-      <form onSubmit={handleLogin}>
+      <form id="loginForm" onSubmit={handleLogin}>
+        <h2>Login</h2>
         <input
           type="email"
           placeholder="Email"
@@ -57,11 +58,17 @@ export default function Login(){
         <br /><br />
 
         <button className="homepageButton" type="submit">Login</button>
-      </form>
-
-      <p>
+        <p className="redirectText">
         Don’t have an account? <Link to="/signup">Signup</Link>
       </p>
+      </form>
+
+      <div className="loginRight">
+        <p>save your thoughs before they're lost again !!</p>
+        <p id="nameText">notes app by <br /> <b> Prabhakar</b> </p>
+      </div>
+
+      <p className="Copyright">2026 Prabhakar Ranjan. Copyright, All rights reserved</p>
     </div>
   );
 }

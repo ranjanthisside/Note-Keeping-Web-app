@@ -63,3 +63,103 @@ li{
   margin:10px;
   cursor: pointer;
 }
+
+/* login and signup page css */
+
+h2{
+  color: rgb(45, 41, 0);
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.loginContainer{margin-top: 20vh;
+
+  width: 70vw;
+  background: rgb(255, 230, 0);
+  /* padding: 20px; */
+  border-radius: 10px;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 20px;
+  box-shadow: 0 0 10px rgba(40, 44, 0, 0.1);
+}
+/* #loginForm{
+  max-width: 50%;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+} */
+
+form{
+  width: 40%;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+input{
+  width: 100%;
+  padding: 8px;
+  color: black;
+  background-color: rgb(255, 254, 218);
+  border: solid rgb(212, 212, 212) 1px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.loginRight{
+  width: 50%;
+}
+
+.loginRight>p{
+  color: rgb(45, 41, 0);
+  font-size: 4.5rem;
+  font-weight: lighter;
+}
+.loginRight>p>b{
+  color: rgb(39, 44, 0);
+  font-size: 2.5rem;
+  font-weight: 750;
+}
+.redirectText{
+  color: rgb(0, 0, 0);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#nameText{
+  margin: 0%;
+  padding: 0%;
+  font-size:1rem;
+  text-align: end;
+}
+.Copyright{
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(45, 41, 0);
+  font-size: 0.7rem;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .loginContainer {
+    flex-direction: column;
+    width: 90vw;
+    margin-top: 0%;
+  }
+  form {
+    width: 80%;
+  }
+  .loginRight {
+    width: 100%;
+    text-align: center;
+  }
+  .loginRight>p {
+    font-size: 3rem;    
+  } 
+  #nameText{
+    text-align: center;
+  }
+  .Copyright{
+    display: block;
+  }
+}
